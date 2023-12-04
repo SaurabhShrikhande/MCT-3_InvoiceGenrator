@@ -53,9 +53,9 @@
                 <input class="mb bg w" type="text" placeholder="Item Name" required> <br>
                 <input class="mb bg w" type="text" placeholder="Item description" required>
                 </div>
-                <input class="mb bg w45" type="number" value="1" name="" id="">
+                <input class="mb bg w45 qty" type="number" value="1" name="" id="">
                 <h3 class="bg right"><span class="bround">$</span></h3>
-                <input class="bg left w100" type="number" value="1.00">
+                <input class="bg left w100 rate" type="number" value="1.00">
                <div>
                 <svg class="bgred"  stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="text-white mt-1 btn btn-danger" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="height: 33px; width: 33px; padding: 7.5px;"><path fill="none" d="M17.004 20L17.003 8h-1-8-1v12H17.004zM13.003 10h2v8h-2V10zM9.003 10h2v8h-2V10zM9.003 4H15.003V6H9.003z"></path><path d="M5.003,20c0,1.103,0.897,2,2,2h10c1.103,0,2-0.897,2-2V8h2V6h-3h-1V4c0-1.103-0.897-2-2-2h-6c-1.103,0-2,0.897-2,2v2h-1h-3 v2h2V20z M9.003,4h6v2h-6V4z M8.003,8h8h1l0.001,12H7.003V8H8.003z"></path><path d="M9.003 10H11.003V18H9.003zM13.003 10H15.003V18H13.003z"></path></svg>
                </div>
@@ -66,11 +66,11 @@
           <button class="btn" id="btn">ADD Item</button>
           <div class="flex jfe">
             <div class="w50p">
-            <div class="flex jsb"><h3 class="m5">Subtotal:</h3> <div class="m5"><span>$</span><span>1.00</span></div></div>
-            <div class="flex jsb"><h3 class="m5">Discount:</h3> <div class="m5"><span>(0%)</span><span>$</span><span>0.00</span></div></div>
-            <div class="flex jsb"><h3 class="m5">Tax:</h3> <div class="m5"><span>(0%)</span><span>$</span><span>0.00</span></div></div>
+            <div class="flex jsb"><h3 class="m5">Subtotal:</h3> <div class="m5"><span class="curry">$</span><span id="subto"> 0.00</span></div></div>
+            <div class="flex jsb"><h3 class="m5">Discount:</h3> <div class="m5"><span>(0%)</span><span class="curry">$</span><span> 0.00</span></div></div>
+            <div class="flex jsb"><h3 class="m5">Tax:</h3> <div class="m5"><span>(0%)</span><span class="curry">$</span><span> 0.00</span></div></div>
             <hr>
-            <div class="flex jsb"><h1 class="m5">Total</h1><h1 class="m5"><span>$</span><span>1</span></h1></div>
+            <div class="flex jsb"><h1 class="m5">Total</h1><h1 class="m5"><span class="curry">$</span><span>0</span></h1></div>
            </div>
          </div>
           
@@ -84,8 +84,8 @@
  
           <h3>Currency:</h3>
           <select class="w bgcur" name="" id="currency">
-            <option value="₹">Rupee(Indian)</option>
             <option value="$">USD (United State Dollar)</option>
+            <option value="₹">Rupee(Indian)</option>
             <option value="£">GBP (British Pound Sterling)</option>
             <option value="¥">JPY (Japanese Yen)</option>
             <option value="$">CAD (Canadian Dollar)</option>
@@ -105,8 +105,6 @@
          </section>
         </form>
          
-
-
 
         <div> <!--    class="pos" -->
        <div class="flex jccaic bgl">
@@ -149,18 +147,18 @@
             <div class="flex jsb fgap">
                <h4 class="m5 minline fontw">1</h4>
                <h4 class="flex1 m5 fontw"><Span>ItemName</Span> - <span>Description</span></h4>
-               <h4 class="m5 w70 fontw"><span>$ </span><span>price</span></h4>
-               <h4 class="m5 fontw"><span>$ </span><span>price*qty</span></h4>
+               <h4 class="m5 w70 fontw"><span class="curry">$ </span><span>price</span></h4>
+               <h4 class="m5 fontw"><span class="curry">$ </span><span>price*qty</span></h4>
             </div>
             <hr>
          </div>
 
          <hr>
            
-         <div class="flex jfe">  <div class="flex jsb w50p"><h5 class="m5">SUBTOTAL</h5> <h5 class="m5 fontw"><span>$ </span><span>AMT</span></h5></div> </div> <hr>
-         <div class="flex jfe"> <div class="flex jsb w50p"><h5 class="m5">TAX</h5> <h5 class="m5 fontw"><span>$ </span><span>TAX-AMT</span></h5></div> </div>   <hr>
-         <div class="flex jfe"> <div class="flex jsb w50p"><h5 class="m5">DISCOUNT</h5> <h5 class="m5 fontw"><span>$ </span><span>Dis-Amt</span></h5></div> </div> <hr>  
-         <div class="flex jfe"> <div class="flex jsb w50p"><h5 class="m5">TOTAL</h5> <h5 class="m5 fontw"><span>$ </span><span>Total-AMT</span></h5></div> </div>  
+         <div class="flex jfe">  <div class="flex jsb w50p"><h5 class="m5">SUBTOTAL</h5> <h5 class="m5 fontw"><span class="curry">$ </span><span>AMT</span></h5></div> </div> <hr>
+         <div class="flex jfe"> <div class="flex jsb w50p"><h5 class="m5">TAX</h5> <h5 class="m5 fontw"><span class="curry">$ </span><span>TAX-AMT</span></h5></div> </div>   <hr>
+         <div class="flex jfe"> <div class="flex jsb w50p"><h5 class="m5">DISCOUNT</h5> <h5 class="m5 fontw"><span class="curry">$ </span><span>Dis-Amt</span></h5></div> </div> <hr>  
+         <div class="flex jfe"> <div class="flex jsb w50p"><h5 class="m5">TOTAL</h5> <h5 class="m5 fontw"><span class="curry">$ </span><span>Total-AMT</span></h5></div> </div>  
          <hr> 
          
          <div class="flex fgap3">
