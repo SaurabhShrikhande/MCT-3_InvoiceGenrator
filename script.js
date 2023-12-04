@@ -1,3 +1,6 @@
+let month = (new Date()).getMonth() + 1;
+document.getElementById("curDate").innerText = ("0" + (new Date()).getDate()).slice(-2) + "/" + ("0" + month).slice(-2) + "/" + (new Date()).getFullYear();
+
 let currencyid = document.getElementById("currency");
 let currency = currencyid.value;
 // console.log(currency);
@@ -116,6 +119,16 @@ btn.addEventListener("click",(ele) => {
     for(let i = 0; i < qty.length; i++){
         total += parseFloat(Array.from(qty)[i].value) * parseFloat(Array.from(rate)[i].value);
         document.getElementById("subto").innerText = total;
+        let tax = document.getElementById("tax").value;
+        document.getElementById("taxp").innerText ="(" + tax + "%)" ; 
+       let discount = document.getElementById("discount").value;
+       document.getElementById("disp").innerText ="(" + discount+ "%)" ; 
+       tax != 0 ? tax = total*tax/100 : tax = 0;
+      document.getElementById("taxamt").innerText = tax;
+       discount != 0 ? discount = total*discount/100 : discount = 0;
+       document.getElementById("disamt").innerText = discount;
+       let tot = total + tax - discount; 
+        document.getElementById("tot").innerText = tot;
     }
   } 
   
@@ -130,6 +143,15 @@ btn.addEventListener("click",(ele) => {
     funsubtotal();
   };
   subtotaleverytime();
+
+
+  document.getElementById("tax").addEventListener("change",() => {
+    subtotaleverytime();
+  })
+  document.getElementById("discount").addEventListener("change",() => {
+    subtotaleverytime();
+  })
+  
   
 
   
