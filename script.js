@@ -10,6 +10,8 @@ let arr1 = [];
 let card =  document.getElementById("card");
 let btn = document.getElementById("btn");
 
+
+/* item add & delete functionality */ 
 function form_card (){
     let currency = document.getElementById("currency").value;
     console.log(currency);
@@ -39,7 +41,7 @@ function form_card (){
     let f =  document.createElement("h3"); 
     f.classList.add("bg" , "right");
     let g = document.createElement("span");
-    g.classList.add("bround");
+    g.classList.add("bround" , "curry");
     g.innerText = currency;
     
     arr1.push(g);
@@ -95,18 +97,20 @@ btn.addEventListener("click",(ele) => {
       form_card(); 
  })
 
+   /*additional functionality currency*/ 
   currencyid.addEventListener("change" , () => {
     // console.log("change")
     let currency = document.getElementById("currency").value;
-    arr1.forEach(element => {
+   /* arr1.forEach(element => {             //no need provide class at the time of adding card.
         element.innerText= currency;
-    });
+    }); */
      let curry = document.getElementsByClassName("curry");
      Array.from(curry).map(element => {
       element.innerText= currency;
      }) 
   })
 
+     /* Calculate Subtotal, total with additional functionality tax & discount */
   function subtotaleverytime(){
    let total = 0;
   let qty = document.getElementsByClassName("qty");
@@ -137,10 +141,12 @@ btn.addEventListener("click",(ele) => {
     }
   } 
   
+  /*whenever change qty */
   Array.from(qty).map(e => {
       e.addEventListener("change", funsubtotal); 
     })
 
+    /*whenever change rate */
     Array.from(rate).map(e => {
       e.addEventListener("change", funsubtotal); 
     })
@@ -150,16 +156,18 @@ btn.addEventListener("click",(ele) => {
   subtotaleverytime();
 
 
+          /*  tax Change  - additional functionality*/     
   document.getElementById("tax").addEventListener("change",() => {
     subtotaleverytime();
   })
+        /* discount Change - additional functionality*/
   document.getElementById("discount").addEventListener("change",() => {
     subtotaleverytime();
   })
   
 
 
-  // Second page
+  /* Second page - load page 2  */
   function loadPage2 (){
         document.getElementById("displayy").style.display = 'block';
 
@@ -218,15 +226,15 @@ btn.addEventListener("click",(ele) => {
 
 
 
-   
-  function fundownlodepdf(){ 
+   /* Download pdf */
+  function fundownloadpdf(){ 
     const content = document.getElementById('content'); 
       html2pdf(content);
   }
   
- let down = document.getElementById("downloadecopy");
+ let down = document.getElementById("downloadecopy"); 
  
-  down.addEventListener("click", fundownlodepdf);
+  down.addEventListener("click", fundownloadpdf);
 
   
 

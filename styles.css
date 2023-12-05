@@ -209,3 +209,21 @@
     top : 20px;
 }
 
+
+
+@media only screen and (max-width: 950px) {
+ 
+   .responsive1{
+    flex-direction: column;
+   }
+
+   .responsive2{
+    width: 100%;
+   }
+}
+
+@media screen and (max-width : 750px) {
+    .responsive3{
+        flex-direction: column;
+    }
+}
