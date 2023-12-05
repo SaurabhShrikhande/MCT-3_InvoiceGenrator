@@ -1,6 +1,8 @@
 # Redmii Project
 
-##[Hosted link](https://saurabhshrikhande.github.io/MCT-3_InvoiceGenrator/)
+## [Hosted link](https://saurabhshrikhande.github.io/MCT-3_InvoiceGenrator/)
+
+## Remark - exta fuctionality added Tax,Discount & Currency including Indian Currency.
 
 ## Overview
 
