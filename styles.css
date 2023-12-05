@@ -226,4 +226,15 @@
     .responsive3{
         flex-direction: column;
     }
+    .responsive1{
+        margin: 25px 25px;
+    }
+
+    .responsive4{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width : 650px) {
+    
 }
