@@ -15,7 +15,7 @@ function form_card (){
     console.log(currency);
     let a0 = document.createElement("div");
     let a = document.createElement("div");
-    a.classList.add("flex");
+    a.classList.add("flex", "carditems");
     let b =  document.createElement("div");
     b.classList.add("flex1");
     let c = document.createElement("input");
@@ -69,7 +69,7 @@ function form_card (){
      
     //  <div>
     //  <div  class="flex">
-    //       <div class="flex1">
+    //       <div class="flex1 carditems">
     //       <input class="mb bg w" type="text" placeholder="Item Name" required> <br>
     //       <input class="mb bg w" type="text" placeholder="Item description" required>
     //       </div>
@@ -119,16 +119,21 @@ btn.addEventListener("click",(ele) => {
     for(let i = 0; i < qty.length; i++){
         total += parseFloat(Array.from(qty)[i].value) * parseFloat(Array.from(rate)[i].value);
         document.getElementById("subto").innerText = total;
+        document.getElementById("subtotalamto").innerText = total;
         let tax = document.getElementById("tax").value;
         document.getElementById("taxp").innerText ="(" + tax + "%)" ; 
        let discount = document.getElementById("discount").value;
        document.getElementById("disp").innerText ="(" + discount+ "%)" ; 
        tax != 0 ? tax = total*tax/100 : tax = 0;
       document.getElementById("taxamt").innerText = tax;
+      document.getElementById("taxamto").innerText = tax;
        discount != 0 ? discount = total*discount/100 : discount = 0;
        document.getElementById("disamt").innerText = discount;
+       document.getElementById("discountamto").innerText = discount;
        let tot = total + tax - discount; 
         document.getElementById("tot").innerText = tot;
+        document.getElementById("amtdueo").innerHTML = tot;
+        document.getElementById("totalamto").innerHTML = tot;
     }
   } 
   
@@ -152,6 +157,77 @@ btn.addEventListener("click",(ele) => {
     subtotaleverytime();
   })
   
+
+
+  // Second page
+  function loadPage2 (){
+        document.getElementById("displayy").style.display = 'block';
+
+     document.getElementById("namefromo").innerText =  document.getElementById("namefrom").value;
+      document.getElementById("invoicenum").innerText = document.getElementById("invoicenum").value;
+       
+
+      document.getElementById("nametoo").innerText = document.getElementById("nameto").value;
+      document.getElementById("addtoo").innerText = document.getElementById("addto").value;
+      document.getElementById("emailtoo").innerText = document.getElementById("emailto").value;
+
+      document.getElementById("namefromo2").innerText = document.getElementById("namefrom").value;
+      document.getElementById("addfromo").innerText = document.getElementById("addfrom").value;
+      document.getElementById("emailfromo").innerText = document.getElementById("emailfrom").value;
+    
+      document.getElementById("duedateo").innerText = document.getElementById("duedate").value;
+
+       /* append item name discription */
+       let carditems = document.querySelectorAll(".carditems");
+       let contu = document.getElementById("contu");
+       contu.innerHTML = "";
+        carditems.forEach(element => {
+          let val1 = element.childNodes[1].value;
+           let val2 = element.childNodes[0].childNodes[0].value;
+           let val3 = element.childNodes[0].childNodes[1].value;
+          let val4 = element.childNodes[3].value;
+          
+        let cdiv = document.createElement("div");
+             cdiv.innerHTML =  
+             `<div class="flex jsb fgap">
+               <h4 class="m5 minline fontw">${val1}</h4>
+               <h4 class="flex1 m5 fontw"><Span>${val2}</Span> - <span>${val3}</span></h4>
+               <h4 class="m5 w70 fontw"><span class="curry">$ </span><span>${val4}</span></h4>
+               <h4 class="m5 fontw"><span class="curry">$ </span><span>${val1 * val4}</span></h4>
+            </div>
+            <hr>`
+             contu.append(cdiv);
+            let dise = document.getElementById("displayy");
+            dise.style.display = 'block';
+             dise.addEventListener("click",(e) => {
+               let disq = document.getElementById("disq");
+                if(e.target == disq){
+                  console.log("click");
+                  dise.style.display = 'none';
+                }
+                else{
+                  console.log("wrongclick");
+                }
+             })
+        });
+    }  
+    document.getElementById("review").addEventListener("click" , elast => {
+      elast.preventDefault();
+      loadPage2();
+    });
+
+
+
+   
+  function fundownlodepdf(){ 
+    const content = document.getElementById('content'); 
+      html2pdf(content);
+  }
+  
+ let down = document.getElementById("downloadecopy");
+ 
+  down.addEventListener("click", fundownlodepdf);
+
   
 
   
