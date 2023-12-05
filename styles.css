@@ -202,11 +202,14 @@
    display: none;
 }
 
+body{
+    position: relative;
+}
 
 .pos{
     width: 100vw;
-    position: fixed;
-    top : 20px;
+    position: absolute;
+     top : 20px;
 }
 
 

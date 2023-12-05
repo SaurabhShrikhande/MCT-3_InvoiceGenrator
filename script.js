@@ -213,6 +213,7 @@ btn.addEventListener("click",(ele) => {
                 if(e.target == disq){
                   console.log("click");
                   dise.style.display = 'none';
+                  document.getElementById('formfill').style.display = 'flex';
                 }
                 else{
                   console.log("wrongclick");
@@ -220,10 +221,20 @@ btn.addEventListener("click",(ele) => {
              })
         });
                funcurrrr();
+
       }  
     document.getElementById("review").addEventListener("click" , elast => {
-      elast.preventDefault();
-      loadPage2();
+      let  formfill = document.getElementById("formfill");
+      if(formfill.checkValidity()){
+        elast.preventDefault();
+        console.log("fill data");
+        document.getElementById('formfill').style.display = 'none';
+        loadPage2(); 
+        
+      }
+      else{
+        return;
+      }
     });
 
 
