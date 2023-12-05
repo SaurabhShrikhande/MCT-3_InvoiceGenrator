@@ -1,6 +1,6 @@
 # Redmii Project
 
-##[Hosted link](URL)
+##[Hosted link](https://saurabhshrikhande.github.io/MCT-3_InvoiceGenrator/)
 
 ## Overview
 
