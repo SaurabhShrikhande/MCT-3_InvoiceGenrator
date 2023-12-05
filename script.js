@@ -98,7 +98,8 @@ btn.addEventListener("click",(ele) => {
  })
 
    /*additional functionality currency*/ 
-  currencyid.addEventListener("change" , () => {
+  currencyid.addEventListener("change" , funcurrrr)
+  function funcurrrr (){
     // console.log("change")
     let currency = document.getElementById("currency").value;
    /* arr1.forEach(element => {             //no need provide class at the time of adding card.
@@ -108,7 +109,7 @@ btn.addEventListener("click",(ele) => {
      Array.from(curry).map(element => {
       element.innerText= currency;
      }) 
-  })
+  }
 
      /* Calculate Subtotal, total with additional functionality tax & discount */
   function subtotaleverytime(){
@@ -218,7 +219,8 @@ btn.addEventListener("click",(ele) => {
                 }
              })
         });
-    }  
+               funcurrrr();
+      }  
     document.getElementById("review").addEventListener("click" , elast => {
       elast.preventDefault();
       loadPage2();
